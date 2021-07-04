@@ -13,25 +13,6 @@ let unionObj = Object.assign(obj1, obj2, obj3);
 console.log(Object.assign(obj1, obj2, obj3));
 console.log(new Set([...one, ...two]));
 console.log(Array.from(setObj.add(unionObj)).filter((v) => v.name === 'zas'));
-// const intersection =(a,b)=>{
-//   let arr=a.filter(item=>{
-//      return b.includes(item)
-//   })
-//   return arr;
-// }
-// console.log(intersection(one,two));
-// const different = (a,b)=>{
-//     let arr=[...a,...b].filter(v=>{
-//         return !a.includes(v) || !b.includes(v);
-//     })
-//     return arr;
-
-// }
-// console.log(different(one,two))
-// const unionArr = (a,b) =>{
-//     return [...new Set([...a,...b])]
-// }
-// console.log(unionArr(one,two));
 
 //封装
 const setArr = (a, b, type) => {
@@ -50,4 +31,4 @@ const setArr = (a, b, type) => {
   return Array.from(setArr);
 };
 console.log(setArr(one, two, 'different'));
-//总结
+//
