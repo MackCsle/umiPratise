@@ -11,4 +11,10 @@ export default defineConfig({
       pathRewrite: { '^/api': '' },
     },
   },
+  // plugins: [
+  //   ['babel-plugin-import', {
+  //     libraryName: '@alifd/next',
+  //     style: true
+  //   }]
+  // ]
 });
