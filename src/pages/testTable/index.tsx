@@ -11,6 +11,8 @@ const tableIndex = () => {
         },
         id: 100306660940 + i,
         time: 2000 + i,
+        name: '张三',
+        age: 19,
       });
     }
     return result;
@@ -18,15 +20,78 @@ const tableIndex = () => {
   const render = (value, index, record) => {
     return <a href="javascript:;">Remove({record.id})</a>;
   };
+
+  const columns = [
+    {
+      title: 'Title1',
+      dataIndex: 'id',
+      width: 140,
+    },
+    {
+      title: 'Group2-7',
+      children: [
+        {
+          title: 'Title2',
+          dataIndex: 'id',
+          width: 140,
+        },
+        {
+          title: 'Title3',
+          dataIndex: 'title.name',
+          lock: true,
+          width: 200,
+        },
+        {
+          title: 'Group4-7',
+          children: [
+            {
+              title: 'Title4',
+              dataIndex: 'title.name',
+              width: 400,
+            },
+            {
+              title: 'Title5',
+              dataIndex: 'title.name',
+              width: 200,
+            },
+            {
+              title: 'tet',
+              children: [
+                {
+                  title: 'Title6',
+                  dataIndex: 'title.name',
+                  width: 400,
+                },
+                {
+                  title: 'Title7',
+                  dataIndex: 'title.name',
+                  width: 200,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: '',
+      children: [
+        {
+          title: 'Time',
+          dataIndex: 'time',
+          width: 500,
+        },
+        {
+          cell: render,
+          width: 200,
+        },
+      ],
+    },
+  ];
   return (
     <div className="table-box">
       <div className="table-content">
-        <Table dataSource={dataSource()}>
-          <Table.Column title="Id" htmlTitle="Unique Id" dataIndex="id" />
-          <Table.Column title="Title" dataIndex="title.name" />
-          <Table.Column title="Time" dataIndex="time" />
-          <Table.Column cell={render} />
-        </Table>
+        <Table columns={columns} dataSource={dataSource()} />,
       </div>
     </div>
   );
