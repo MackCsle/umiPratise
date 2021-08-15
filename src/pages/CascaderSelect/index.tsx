@@ -1,7 +1,29 @@
-import { CascaderSelect } from '@alifd/next';
+import { CascaderSelect, Select } from '@alifd/next';
 import 'whatwg-fetch';
 import cityData from './city';
+const { Option, OptionGroup } = Select;
 import './index.less';
+
+const dataSource = [
+  {
+    label: 'label1',
+    children: [
+      {
+        label: 'label1-1',
+        value: 'text1-1',
+      },
+    ],
+  },
+  {
+    label: 'label2',
+    children: [
+      {
+        label: 'label2-1',
+        value: 'text2-1',
+      },
+    ],
+  },
+];
 class Demo extends React.Component {
   handleChange: (value: any, data: any, extra: any) => void;
   constructor(props: {} | Readonly<{}>) {
@@ -66,6 +88,7 @@ class Demo extends React.Component {
   render() {
     return (
       <div className="select-content">
+        {/* 城市联机选择 */}
         <CascaderSelect
           dataSource={cityData}
           showSearch
@@ -73,6 +96,20 @@ class Demo extends React.Component {
           canOnlyCheckLeaf
           multiple
         />
+        {/* select分组 */}
+        <Select placeholder="OptionGroup" style={{ marginRight: 8 }}>
+          <OptionGroup label="group1">
+            <Option value="small">Small</Option>
+            <Option value="medium">Medium</Option>
+            <Option value="large">Large</Option>
+          </OptionGroup>
+          <OptionGroup label="group2">
+            <Option value="small2">Small2</Option>
+            <Option value="medium2">Medium2</Option>
+            <Option value="large2">Large2</Option>
+          </OptionGroup>
+        </Select>
+        <Select placeholder="use dataSource" dataSource={dataSource} />
       </div>
     );
   }
